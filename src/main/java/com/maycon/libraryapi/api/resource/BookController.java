@@ -6,6 +6,8 @@ import com.maycon.libraryapi.api.model.entity.Book;
 import com.maycon.libraryapi.api.model.entity.Loan;
 import com.maycon.libraryapi.api.service.BookService;
 import com.maycon.libraryapi.api.service.LoanService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/books")
+@Api("Book API")
 @RequiredArgsConstructor
 public class BookController {
 
@@ -30,6 +33,7 @@ public class BookController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Create a book")
     public BookDTO create(@RequestBody @Valid BookDTO dto) {
 
         Book entity = modelMapper.map(dto, Book.class);
@@ -39,6 +43,7 @@ public class BookController {
     }
 
     @GetMapping("{id}")
+    @ApiOperation("Obtem detalhes do livro")
     public BookDTO get(@PathVariable Long id) {
 
         return service.getById(id)
