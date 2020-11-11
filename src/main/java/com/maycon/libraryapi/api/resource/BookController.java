@@ -2,21 +2,16 @@ package com.maycon.libraryapi.api.resource;
 
 import com.maycon.libraryapi.api.DTO.BookDTO;
 import com.maycon.libraryapi.api.DTO.LoanDTO;
-import com.maycon.libraryapi.api.exceptions.ApiErrors;
 import com.maycon.libraryapi.api.model.entity.Book;
 import com.maycon.libraryapi.api.model.entity.Loan;
 import com.maycon.libraryapi.api.service.BookService;
 import com.maycon.libraryapi.api.service.LoanService;
-import com.maycon.libraryapi.exception.BusinessException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
